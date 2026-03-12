@@ -21,4 +21,22 @@
 
         These networks are scalable because the designers follow accepted standards and protocols. This lets software and hardware vendors focus on improving products and services without having to design a new set of rules for operating within the network.
 
+# Quality of Service
+    Quality of Service (QoS) is an increasing requirement of networks today. New applications available to users over networks, such as voice and live transmissions, create higher expectations for the qualtiy of the delivered services.
+    As data, voice, and video content continue to converge onto the same network, QoS becomes a primary mechanism for managing congestion and ensuring reliable delivery of content to all users.
+    Congestion occurs when the demand for bandwitdth exceeds the amount available. Network bandwidth is measured in the number of bits that can be transmitted in a single second, or bits per second (bps). When simultaneous communications are attempted across the network, the demand for network bandwidth can exceed its availability, creating network congestion.
+    When the volume of traffic is greater than what can be transported across the network, devices will hold the packets in memory ntil resources become available to transmit them. The focus of QoS is to prioritize time-sensitive traffic. The type of traffic, not the content of the traffic, is what is important.
+
+# Network Security
+    The network infrastructure, services, and the data contained on network-attached devices are crucial personal and business assets. Network administrators must address two types of network security concers: network infrastructure security and information security.
+    Securing the network infrastructure includes physically securing devices that provide network connectivity and preventing unauthorized access to the management software that resides on them.
+    Network administrators must also protect the information contained within the packets being transmitted over the network, and the information stored on the network attached devices. In order to achieve the goals of network security, there are three primary requirements.
+
+        Confidentiality
+            Data confidentiality means that only the intended and authorized recipients can access and read data
+        Integrity
+            Data integrity assures users that the information has not been altered in transmission, from origin to destination
+        Availability
+            Data availability assures users of timely and reliable access to data services for authorized users
+
 
