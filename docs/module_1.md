@@ -12,3 +12,13 @@
 # Fault Tolerance
     A fault tolerant network is one that limits the number of affected devices during a failure. It is built to allow quick recovery when such a failure occurs. These networks depend on multiple paths between the source and destination of a message. If one path fails, the messages are instantly sent over a different link. Having multiple paths to a destination is known as redundancy.
     Implementing a packet-switched network is one way that reliable networks provide redundancy. Packet switching splits traffic into packets that are routed over a shared network. A single message, such as an email or a video stream, is broken into multiple message blocks, called packets. Each packet has the necessary addressing information of the source and destination of the message. The routers within the network switch the packets based on the condition of the network at that moment. This means that all the packets in a single message could take very different paths to the same destination.
+
+# Scalability
+    A scalable network expands quickly to support new users and applications. It does this without degrading the performance of services that are being accessed by existing users.
+        The figure below shows how a new network can easily be added to an existing network.
+
+            ![Network system](images/scalability.png)
+
+        These networks are scalable because the designers follow accepted standards and protocols. This lets software and hardware vendors focus on improving products and services without having to design a new set of rules for operating within the network.
+
+
