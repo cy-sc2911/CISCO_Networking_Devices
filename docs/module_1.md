@@ -50,4 +50,16 @@
     On an Ethernet network, the host MAC address is similar to a person's name. A MAC address indicates the individual identity of a specific host, but it does not indicate where on the network the host is located. If all hosts on the internet (millions and millions of them) were each identified by their unique MAC address only, imagine how difficult it would be to locate a single one.
     Additionally, Ethernet technology generates a large amount of broadcast traffic in order for hosts to communicate. Broadcasts are sent to all hosts within a single network. Broadcasts consume bandwidth and slow network performance. What would happen if millions of hosts atttached to the internet were all in one Ethernet network and were using broadcasts?
     For these reasons, large Ethernet network consisting of many hosts are not efficient. It is better to divide larger networks into smaller, more manageable pieces. One way to divide larger networks is to use a hierarchical design model.
-    
+
+# Access, Distribution, and Core
+    IP traffic is managed based on the characteristics and devices associated with each of the three layers of the hierarchical network design model: Access, Distribution and Core.
+
+        Access Layer
+            The access layer provides a connection point for end user devices to the network and allows multiple hosts to connect to other hosts through a network device, usually a switch, or a wireless access point. Typically, all devices within a single access layer will have the same network portion of the IP address.
+            If a message is destined for a local host, based on the network portion of the IP address, the message remains local. If it is destined for a different network, it is passed up to the distribution layer. Switches provide the connection to the distribution layer devices, usually a Layer 3 device such as a router or Layer 3 switch.
+
+        Distribution Layer
+            The distribution layer provides a connection point for separate networks and controls the flow of information between the networks. It typically contains more powerful switches, than the access layer as well as routers for routing between networks. Distribution layer devices control the type and amount of traffic that flows from the access layer to the core layer.
+
+        Core Layer
+            The core layer is a high-speed backbone layer with redundant (backup) connections. It is responsible for transporting large amounts of data between multiple end networks. Core layer devices typically include very powerful, high-speed switches and routers. The main goal of the core layer is to transport data quickly.
