@@ -45,3 +45,9 @@
     The IP address is similar to the address of a person. It is known as logical address because it is assigned logically based on where the host is located. The IP address, or network address, is assigned to each host by a network administrator based on the local network.
     IP addresses contain two parts. One part identifies the network portion. The network portion of the IP address will be the same for all hosts connected to the same local network. The second part of the IP address identifies the individual host on that network. Within the same local network, the host portion of the IP address is unique to each host.
     Both the physical MAC and logical IP addresses are required for a computer to communicate on a hierarchical network, just like both the name and address of a person are required to send a letter.
+
+# Hierarchical Analogy
+    On an Ethernet network, the host MAC address is similar to a person's name. A MAC address indicates the individual identity of a specific host, but it does not indicate where on the network the host is located. If all hosts on the internet (millions and millions of them) were each identified by their unique MAC address only, imagine how difficult it would be to locate a single one.
+    Additionally, Ethernet technology generates a large amount of broadcast traffic in order for hosts to communicate. Broadcasts are sent to all hosts within a single network. Broadcasts consume bandwidth and slow network performance. What would happen if millions of hosts atttached to the internet were all in one Ethernet network and were using broadcasts?
+    For these reasons, large Ethernet network consisting of many hosts are not efficient. It is better to divide larger networks into smaller, more manageable pieces. One way to divide larger networks is to use a hierarchical design model.
+    
