@@ -15,3 +15,11 @@
         ![Decimal IPv4 Address](images/ipv4_in_deciimal.png)
 
     For a solid understanding of networking addressing, it is necessary to know binary addressing and gain practical skills converting between binary and dotted decimal IPv4 addresses.
+
+# Converting between Binary and Decimal Numbering Systems
+
+    ![Convert](images/number_to_binary.png)
+    ![Convert](images/binary_to_number.png)
+    ![Convert](images/binary_to_ipv4Address.png)
+
+
