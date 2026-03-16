@@ -33,3 +33,22 @@
 
     As shown in the figure below, the preferred format for writing an IPv6 address is x:x:x:x:x:x:x:x, with each “x” consisting of four hexadecimal values. When referring to 8 bits of an IPv4 address we use the term octet. In IPv6, a hextet is the unoffical term used to refer to a segment of 16 bits or four hexadecimal values. Each "x" is a single hextet, 16 bits, or four hexadecimal digits.
 
+        ![IPv6](images/ipv6.png)
+
+# Converting between hexadecimal and decimal numbering system
+    To convert decimal to hexadecimal:
+        First, convert the decimal number to binary number.
+        Next, convert the 8 bit-binary number to hexadecimal.
+        Then split the 8-bit binary number into two 4-bit binary numbers.
+        Write the first four binary place values above each half.
+        Convert each half (4-bit binary number) to decimal.
+        Lastly, convert each decimal number into its corresponding hex value.
+
+            ![How to convert](images/decimal_to_hexa.png)
+
+    To convert hexadecimal to decimal:
+        First, convert each hex symbol to its 4-bit binary equivalent.
+        Next, combine into one 8-bit binary number and convert to decimal
+
+            ![How to convert](images/hexa_to_deci.png)
+
