@@ -22,4 +22,14 @@
     ![Convert](images/binary_to_number.png)
     ![Convert](images/binary_to_ipv4Address.png)
 
+## Hexadecimal Number System
+    Just as decimal is a base ten number system, hexadecimal is a base sixteen system. The base sixteen number system uses the digits 0 to 9 and the letters A to F. The figure below shows the equivalent decimal and hexadecimal values for binary 0000 to 1111.
+
+        ![Hexadecimal](images/decimal_binary_hexa.png)
+
+    Binary and hexadecimal work well together because it is easier to express a value as a single hexadecimal digit than as four binary bits.
+    The hexadecimal numbering system is used in networking to represent IP Version 6 addresses and Ethernet MAC addresses.
+    IPv6 addresses are 128 bits in length and every 4 bits is represented by a single hexadecimal digit; for a total of 32 hexadecimal values. IPv6 addresses are not case-sensitive and can be written in either lowercase or uppercase.
+
+    As shown in the figure below, the preferred format for writing an IPv6 address is x:x:x:x:x:x:x:x, with each “x” consisting of four hexadecimal values. When referring to 8 bits of an IPv4 address we use the term octet. In IPv6, a hextet is the unoffical term used to refer to a segment of 16 bits or four hexadecimal values. Each "x" is a single hextet, 16 bits, or four hexadecimal digits.
 
