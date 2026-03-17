@@ -78,4 +78,4 @@
     The figure below shows each field in the Ethernet frame.
         ![Ethernet Frame Field](images/eth_frame_field.png)
 
-    
+
