@@ -42,3 +42,40 @@
             This IEEE 802.2 sublayer communicates between the networking software at the upper layers and the device hardware at the lower layers. It places information in the frame that identifies which network layer protocol is being used for the frame. This information allows multiple Layer 3 protocols, such as IPv4 and IPv6, to use the same network interface and media.
         MAC Sublayer
             This sublayer (IEEE 802.3, 802.11, or 802,15 for example) is implemented in hardware and is responsible for data encapsulation and media access control. It provides data link layer addressing and is intergrated with various physical layer technologies.
+
+        ![LLC and MAC](images/llc_mac.png)
+
+# MAC sublayer
+    Ethernet Standards in the MAC Sublayer
+        The MAC sublayer is responsible for data encapsulation and accessing the media.
+        Data Encapsulation
+        IEEE 802.3 data encapsulation includes the following:
+
+            Ethernet frame
+                This is the internal structure of the Ethernet frame
+            Ethernet Addressing
+                The Ethernet frame includes both a source and destination MAC address to deliver the Ethernet frame from Ethernet NIC to Ethernet NIC on the same LAN.
+            Ethernet Error detection
+                The Ethernet frame includes a frame check sequence (FCS) trailer used for error detection.
+
+        Accessing the Media
+            As shown in the figure below, the IEEE 802.3 MAC sublayer includes the specificawtions for different Ethernet communications standards over various types of media including copper and fiber.
+
+                ![Ethernet Standards in the MAC Sublayer](images/eth_mac_sublayer.png)
+
+        Legacy Ethernet using a bus topology or hubs, is a shared, half-duplex medium. Ethernet over a half-duplex medium uses a contention-based access method, carrier sense multiple access/collision detection (CSMA/CD). This ensures that only one device is transmitting at a time. CSMA/CD (Carrier Sense Multiple Access with Collision Detection) allows multiple devices to share the same half-duplex medium, detecting a collision when more than one device attempts to transmit simultaneously. It also provides a back-off algorithm for retransmission.
+        Ethernet LANs of today use switches that operate in full-duplex. Full-duplex communications with Ethernet switches do not require access control through CSMA/CD.
+
+# Ethernet Frame Fields
+    The minimum Ethernet frame size is 64 bytes and the expected maximum is 1518 bytes. This includes all bytes from the destination MAC address field through the frame check sequence (FCS) field. The preamble field is not included when describing the size of the frame.
+
+    Note: The frame size may be large if additional requirements are includes, such as VLAN tagging. VLAN tagging is beyond the scope of this scope.
+
+    Any frame less than 64 byyes in length is considered a "collision fragment" or "runt frame" and is automatically discarded by receiving stations. Frames with more than 1500 bytes of data is considered "jumbo" or "baby giant frames".
+
+    If the size of a transmitted frame is less than the minimum, or greater than the maximum, the receiving device drops the frame. Dropped frames are likely to be the result of the collisions or other unwanted signals. They are considered invalid. Jumbo frames are usually supported by most Fast Ethernet and Gigabit Ethernet switches and NICs.
+
+    The figure below shows each field in the Ethernet frame.
+        ![Ethernet Frame Field](images/eth_frame_field.png)
+
+    
