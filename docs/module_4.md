@@ -123,4 +123,22 @@
 
 # Multicast MAC Address
     An Ethernet multicast frame is received and processed by a group of devices on the Ethernet LAN that belong to the same multicast group. The features of an Ethernet multicast are as follows:
+
         There is a destination MAC address of 01-00-5E when the encapsulated data is an IPv4 multicast packet and a destination MAC address of 33-33 when the encapsulated data is an IPv6 multicast packet.
+        There are other reserved multicast destination MAC address for when the encapsulated data is not IP, such as Spanning Tree Protocol (STP) and Link Layer Discovery Protocol (LLDP).
+        It is flooded out all Ethernet switch ports except the incoming port, unless the switch is configured for multicast snooping.
+        It is not forwarded by a router, unless the router is configured to route multicast packets.
+
+    If the encapsulate data is an IP multicast packet, the devices that belong to a multicast group are assigned a multicast group IP address. The range of IPv4 multicast addresses is 224.0.0.0 to 239.255.255.255. The range of IPv6 multicast addresses begins with ff00::/8. Because multicast addresses represent a group of addresses (sometimes called a host group), they can only be used as the destination of a packet. The source will always be a unicast address.
+
+    As with the unicast and broadcast addresses, the multicast IP address requires a corresponding multicast MAC address to deliver frames on a local network. The multicast MAC address is associated with, and uses addressing information from, the IPv4 or IPv6 multicast address.
+
+    Routing protocols and other network protocols use multicast addressing. Applications such as video and imaging software may also use multicast addressing, although multicast applications are not as common.
+
+## The MAC Address Table
+    Switch Fundamentals
+        A switch uses these Ethernet MAC addresses to forward (or discard) frames to other devices on a network. If a switch just forwarded every frame it received out all ports, the network would be so congested that it would probably come to a complete half.
+
+        A Layer 2 Ethernet switch uses LAyer 2 MAC addresses to make forwarding decisions. It is completely unaware of the data (protocol) being carried in the data portion of the frame, such as an IPv4 packet, an ARP message, or an IPv6 ND packet. The switch makes it forwarding decisions based solely on the Layer 2 Ethernet MAC addresses.
+
+        An Ethernet switch examines its MAC address table to make a forwarding decision for each frame, unlike legacy Ethernet hubs that repeat bits out all ports except the incoming port.
