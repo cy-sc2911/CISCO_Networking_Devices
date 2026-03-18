@@ -142,3 +142,7 @@
         A Layer 2 Ethernet switch uses LAyer 2 MAC addresses to make forwarding decisions. It is completely unaware of the data (protocol) being carried in the data portion of the frame, such as an IPv4 packet, an ARP message, or an IPv6 ND packet. The switch makes it forwarding decisions based solely on the Layer 2 Ethernet MAC addresses.
 
         An Ethernet switch examines its MAC address table to make a forwarding decision for each frame, unlike legacy Ethernet hubs that repeat bits out all ports except the incoming port.
+
+        NOTE: The MAC address table is sometimes reffered to as a content addressable memory (CAM) table.
+
+
