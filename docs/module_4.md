@@ -78,4 +78,49 @@
     The figure below shows each field in the Ethernet frame.
         ![Ethernet Frame Field](images/eth_frame_field.png)
 
+## Ethernet MAC Address
+    Decimal and Binary Equivalents of 0 to F Hexadecimal
+        In networking, IPv4 addresses are represented using the decimal base ten number system and the binary base 2 number system. IPv6 addresses and Ethernet addresses are represented using the hexadecimal base sixteen number system.
+        The hexadecimal numbering system uses the numbers 0 to 9 and the letters A to F.
+        An Ethernet MAC address consists of a 48-bit binary value. Hexadecimal is used to identify an Ethernet address because a single hexadecimal digit represents four binary bits. Therefore, a 48-bit Ethernet MAC address can be expressed using only 12 hexadecimal values.
 
+    Selected Decimal, Binary, and Hexadecimal Equivalents
+        Given that 8 bits (one byte) is a common binary grouping, binary 00000000 to 11111111 can be represented in hexadecimal as the range 00 to ff, as shown in the figure below.
+
+            ![Selected](images/selected.png)
+
+        When using hexadecimal, leading zeroes are always displayed to complete the 8-bit representation. Example, in the image above, the binary value 0000 1010 is shown in hexadecimal as 0A.
+
+        Hexadecimal numbers are often represented by the value preceded by 0x (e.g., 0x73) to distinguish between decimal and hexadecimal values in documentation.
+
+        Hexadecimal may also be represented by a subscript 16, or the hex number followed by a H (e.g., 73H).
+
+# Unicast MAC address
+    In Ethernet, different MAC addresses are used for Layer 2 unicast, broadcast, and multicast communications.
+
+    A unicasts MAC address is the unique address that is used when a frame is sent from a single transmitting device to a single destination device.
+
+    For a unicast packet to be sent and received, a destinatio IP address must be in the IP packet header. A corresponding destination MAC address must also be present in the Ethernet frame header. The IP address and MAC address combine to deliver data to one specific destination host.
+
+    The process that a source host uses to determine the destination MAC address associated with an IPv4 address is known as Address Resolution Protocol (ARP). The process that a source host uses to determine the destination MAC address associated with an IPv6 address is known as Neighbor Discovery (ND).
+
+    Note: The source MAC address must always be a unicast.
+
+# Broadcast MAC Address
+    An Ethernet broadcast frame is received and processed by every device on the Ethernet LAN. The features of an Ethernet broadcast are as follows:
+
+        It has a destination MAC address of FF-FF-FF-FF-FF-FF in hexadecimal (48 ones in binary).
+        It is flooded out all Ethernet switch ports except the incoming port.
+        It is not forwarded by a router.
+
+    If the encapsulated data is an IPv4 broadcast packet, this means the packet contains a destination IPv4 address that has all ones (1s) in the host portion. This numbering in the address means that all hosts on that local network (broadcast domain) will receive and process the packet.
+
+    When the IPv4 broadcast packet is encapsulated in the Ethernet frame, the destination MAC address is the broadcast MAC address of FF-FF-FF-FF-FF-FF in hexadecimal (48 ones in binary).
+
+    DHCP for IPv4 is an example of a protocol that uses Ethernet and IPv4 broadcast addresses.
+
+    However, not all Ethernet broadcasts carry an IPv4 broadcast packet. For example, ARP Requests do no use IPv4, but the ARP message is sent as an Ethernet broadcast.
+
+# Multicast MAC Address
+    An Ethernet multicast frame is received and processed by a group of devices on the Ethernet LAN that belong to the same multicast group. The features of an Ethernet multicast are as follows:
+        There is a destination MAC address of 01-00-5E when the encapsulated data is an IPv4 multicast packet and a destination MAC address of 33-33 when the encapsulated data is an IPv6 multicast packet.
