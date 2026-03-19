@@ -42,4 +42,16 @@
 
     Routers implement routing protocols to route packets between networks. The routing performed by these intermediary devices examines the network layer addressing in the packet header. In all cases, the data portion of the packet, that is, the encapsulated transport layer PDU or other data, remains unchanged during the network layer processes.
 
+# Characteristics of IP
+    IP was designed as a protocol with low overhead. It provides only the functions that are necessary to deliver a packet from a source to a destination over a interconnected system of networks. The protocols was not designed to track and manage the flow of packets. These functions, if required, are performed by other protocols at other layers, primarily at TCP at Layer 4.
+
+    These are the basic characteristics of IP:
+
+        Connectionless
+            There is no connection with the destination established before sending data packets.
+        Best Effort
+            IP is inherently unreliable because packet delivery is not guaranteed.
+        Media Independent
+            Operation is independent of the medium (i.e., copper, fiber-optic, or wireless) carrying the data.
+
 
