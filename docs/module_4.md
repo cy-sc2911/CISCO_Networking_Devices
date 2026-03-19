@@ -145,4 +145,27 @@
 
         NOTE: The MAC address table is sometimes reffered to as a content addressable memory (CAM) table.
 
+# Switch Learning and Forwarding
+    The switch dynamically builds the MAC address table by examining the source MAC address of the frames received on a port. The switch forwards frames by searching for a match between the destination MAC address in the frame and an entry in the MAC address table.
+
+        Learn
+            Examine the Source MAC Address
+                Every frame that enters a switch is checked for new information to learn. It does this by examining the source MAC address of the frame and the port number where the frame entered the switch. If the source MAC address does not exist, it is added to the table along with the incoming port number. If the source MAC address does exist, the switch updates the refresh timer for that entry in the table. By default, most Ethernet switches keep an entry in the table for 5 minutes.
+
+                NOTe: If the source MAC address does exist in the table but on a different port, the switch treats this as a new entry. The entry is replaced using the same MAC address but with the more current port number.
+
+        Forward
+            Find the Destination MAC Address
+                If the destination MAC Address is a unicast address, the switch will look for a match between the destination MAC address of the frame and an entry in its MAC address table. If the destination MAC address is in the table, it will forward the frame out the specified port. If the destination MAC address is not in the table, the switch will forward the frame out all ports except the incoming port. This is called an unknown unicast.
+
+                NOTE: If the destination MAC address is a broadcast or a multicast, the frame is also flooded out all ports except the incoming port.
+
+# Filtering Frames
+    As a switch receives frames from different devices, it is able to populate its MAC address table by examining the source MAC address of every frame. When the MAC address table of the switch contains the destination MAC address, it is able to filter the frame and forward out a single port.
+
+# MAC Address Tables on Connected Switches
+    A switch can have multiple MAC addresses associated with a single port. This is common when the switch is connected to another switch. The switch will have a separate MAC address table entry for each frame received with a different source MAC address.
+
+# Send the Frame to the Default Gateway
+    When a device has an IP address that is on a remote network, the Ethernet frame cannot be sent directly to the destination device. Instead, the Ethernet frame is sent to the MAC address of the default gateway, the router.
 
