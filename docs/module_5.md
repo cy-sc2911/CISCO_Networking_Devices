@@ -118,4 +118,51 @@
     Other fields are used to reorder a fragmented packet. Specifically, the IPv4 packet uses Identification, Flags, and Fragment Offset fields to keep track of the fragments. A router may have to fragment an IPv4 packet when forwarding it from one medium to another with a smaller MTU.
 
 ## IPv6 Packets
+# Limitations of IPv4
+    IPv4 is still in use today. This topic is about IPv6, which will eventually IPv4. To better understand why you need to know the IPv6 protocol, it helps to know the limitations and the advantages of IPv6.
 
+    Through the years, additional protocols and processes have been developed to address new challenges. However, even with changes, IPv4 still has three major issues:
+
+        IPv4 address depletion
+            IPv4 has a limited number of unique public addresses available. Although there are approximately 4 billion IPv4 addresses, the increasing number of new IP-enabled devices, always-on connections, and the potential growth of less-developed regions have increased the need for more addresses.
+        Lack of end-to-end connectivity
+            Network Address Translation (NAT) is a technology commonly implemented within IPv4 networks. NAT provides a way for multiple devices to share a single public IPv4 address. However, because the public IPv4 address is shared, the IPv4 address of an internal network host is hidden. This can be problematic for techologies that require end-to-end connectivity.
+        Increased network complexity
+            While NAT has extended the lifespan of IPv4, it was only meant as a transition mechanism to IPv6. NAT in its various implementation creates additional complexity in the network, creating latency and making troubleshooting more difficult.
+
+# IPv6 Overview
+    In the early 1990s, the Internet Engineering Task Force (EITF) grew concerned about the issues with IPv4 and began to look for a replacement. This activity led to the development of IP version 6 (IPv6). IPv6 overcomes the limitations of IPV4 and is a powerful enhancement with features that better suit current and foreseeable network demands.
+
+    Improvements that IPv6 provides include the following:
+
+        Increased address space
+            IPv6 addresses are based on 128-bit hierarchical addressing as opposed to IPv4 with 32 bits.
+        Improved packet handling
+            The IPv6 header has been simplified with fewer fields.
+        Eliminates the need for NAT
+            With such a large number of public IPv6 addresses, NAT between a private IPv4 address and a public IPv4 is not needed. This avoids some of the NAT-induced problems experienced by applications that require end-to-end connectivity.
+
+    The 32-bit IPv4 address space provides approximately 4,294,967,296 unique addresses. IPv6 address space provides 340,282,366,920,938,463,463,374,607,431,768,211,456, or 349 undeciliion addresses. This is roughly equivalent to every grain of sand on Earth.
+
+    The figure below provides a visual to compare IPv4 and IPv6 address space.
+
+        ![Address space](images/ipv4_vs_ipv6.png)
+
+# IPv4 Packet Header Fields in the IPv6 Packet Header
+    One of the major design improvements of IPv6 over IPv4 is the simplified IPv6 header.
+
+    For example, the IPv6 header consists of a variable length header of 20 octets (up to 60 bytes if the Options field is used) and12 basic header fields, not including the Options field and Padding field.
+
+    For IPv6, some fields have remained the same, some fields have changed names and positions, and some IPv4 fields are no longer required.
+
+        Below is the image of the IPv4 packet header:
+            ![IPv4](images/ipv4_header.png)
+
+    In contrast, the simplified IPv6 header shown  below consists of a fixed length header of 40 octets (largely due to the length of the source and destination IPv6 addresses).
+
+    The IPv6 simpplified header allows for more efficient processing of IPv6 headers.
+
+        Below is the image of the IPv6 packet header:
+            ![IPv6](images/ipv6_header.png)
+
+#
