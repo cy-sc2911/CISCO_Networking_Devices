@@ -84,3 +84,38 @@
     The OSI data link layer is responsible for taking an IP packet and preparing it for transmission over the communications mediu. This means that the delivery of IP packets in not limited to any particular medium.
 
     There is, however, one major characteristic of the media that the network layer considers: the maximum size of the PDU that each medium can transport. This characteristic is referred to as the maximum transmission unit (MTU). Part of the control communication between the data link layer and the network layer is the establishment of a maximum size for the packet. The data link layer passes the MTU value up to the network layer. The network layer then determines how large packets can be. In some cases, an intermediate device, usually a router, must split up an IPv4 packet when forwarding it from one medium to another medium with a smaller MTU. This process is called fragmenting the packet, or fragmentation. Fragmentation causes latency. IPv6 packets cannot be fragmented by the router.
+
+## IPv4 Packet
+# IPv4 Packet Header
+    IPv4 is one of the primary network layer communication protocols. The IPv4 packet header is used to ensure that this packet is delivered to its next stop on the way to its destination end device.
+
+    An IPv4 packet header consists of fields containing important information about the packet. These fields contain binary numbers which are examined by the Layer 3 process.
+
+# IPv4 Packet Header Fields
+    The binary values of each field identify various settings of the IP packet. Protocol header diagrams, which are read left to right, and top down, provide visual to refer to when discussing protocol fields. The IP protocol header diagram in the figure below identifies the fields of an IPv4 packet.
+
+        ![IPv4](images/packet_header_field.png)
+
+    Significant fields in the IPv4 header include the following:
+
+        Version
+            Contains a 4-bit binary value set to 0100 that identifies as an IPv4 packet
+        Differentiated Services or DiffServ (DS)
+            Formerly called the type of service (ToS) field, the DS field is an 8-bit field used to determine the priority of each packet. The six most significant bits of the DiffServ field are the differentiated services code point (DSCP) bits that the last two bits are the explicit congestion notification (ECN) bits.
+        Time to Live (TTL)
+            TTL contains an 8-bit binary value that is used to limit the lifetime of a packet. The source device of the IPv4 packet sets the initial TTL value. It is decreased by one each time the packet is processed by a router. If the TTL field decrements to zero, the router discards the packet and sends an Internet Control Message Protocol (ICMP) Time Exceeded message to the source IP address. Because the router decrements the TTL of each packet, the router must also recalculate the Header Checksum.
+        Header Checksum
+            This is used to detect corruption in the IPv4 header
+        Source IPv4 Address
+            This contains a 32-bit binary value that represents the source IPv4 address of the packet. The source IPv4 address is always a unicast address.
+        Destination IPv4 Address
+            This contains a 32-bit binary value that represents the destination IPv4 address of the packet. The destination IPv4 address is a unicast, multicast, or broadcast address.
+
+    The two most commonly referenced fields are the source and destination IP addresses. These fields identify where the packet is coming and where it is going. Typically, these addresses do not change while travelling from the source to the destination.
+
+    The Internet Header Length (IHL), Total Length, and Header Checksum fields are used to identify and validate the packet.
+
+    Other fields are used to reorder a fragmented packet. Specifically, the IPv4 packet uses Identification, Flags, and Fragment Offset fields to keep track of the fragments. A router may have to fragment an IPv4 packet when forwarding it from one medium to another with a smaller MTU.
+
+## IPv6 Packets
+
