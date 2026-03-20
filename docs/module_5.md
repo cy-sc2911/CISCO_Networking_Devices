@@ -54,4 +54,33 @@
         Media Independent
             Operation is independent of the medium (i.e., copper, fiber-optic, or wireless) carrying the data.
 
+# Connectionless
+    Connectionsless - Analogy
+        IP is connectionless, meaning that no dedicated end-to-end is created by IP before data is sent. Connectionless communication is conceptually similar to sending a letter to someone without notifying the recipient in advance. The figure summarizes this key point.
 
+            ![Analogy](images/connectionless_analogy.png)
+
+    Connectionless - Network
+        Connectionless data communications work on the same principle. IP requires no initial exchange of control information to establish an end-to-end connection before packets are forwarded.
+
+            ![Network](images/connectionless_network.png)
+
+# Best Effort
+    IP also does not require additional fields in the header to maintain an establish connection. This process greatly reduces the overhead of IP. However, with no pre-established end-to-end connection, senders are unaware whether destination devices are present and functional when sending packets, nor are they aware if the destination receives the packet, or if the destination device is able to access and read the packet.
+
+    The IP protocol does not guarantee that all packets that are delivered are, in fact, received. The figure illustrates the unreliable or best-effort delivery characteristic of the IP protocol.
+
+        ![Example](images/best_effort.png)
+
+# Media Independent
+    Unreliable means that IP does not have the capaility to manage and recover from undelivere or corrupt packets. This is because while IP packets are sent with information about the location of delivery, they do not contain information that can be processed to inform the sender whether delivery was successful. Packets may arrive at the destination corrupted, out of sequence, or not at all. IP provides no capability for packet retransmission if error occur.
+
+    If out-of-order packets are delivered, or packets are missing, then applications using the data, or upper layer services, must resolve these issues. This allows IP to function very efficiently. In the TCP/IP protocol suite, reliability is the role of the TCP protocol at the transport layer.
+
+    IP operates independently of the media that carry the data at lower layers of the protocol stack. As shown in the figure below, IP packets can be communicated as electronic signals over copper cable, as optical signals over fiber, or wirelessly as radio signals.
+
+            ![Media Independent](images/independent.png)
+
+    The OSI data link layer is responsible for taking an IP packet and preparing it for transmission over the communications mediu. This means that the delivery of IP packets in not limited to any particular medium.
+
+    There is, however, one major characteristic of the media that the network layer considers: the maximum size of the PDU that each medium can transport. This characteristic is referred to as the maximum transmission unit (MTU). Part of the control communication between the data link layer and the network layer is the establishment of a maximum size for the packet. The data link layer passes the MTU value up to the network layer. The network layer then determines how large packets can be. In some cases, an intermediate device, usually a router, must split up an IPv4 packet when forwarding it from one medium to another medium with a smaller MTU. This process is called fragmenting the packet, or fragmentation. Fragmentation causes latency. IPv6 packets cannot be fragmented by the router.
