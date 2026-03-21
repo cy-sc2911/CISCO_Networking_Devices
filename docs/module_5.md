@@ -1,7 +1,6 @@
 ### Network Layer Characteristics
 
 ## Data Encapsulation
-
 ## The Network Layer
     Network Layer Protocols
         The network layer, or OSI Layer 3, provides services to allow end devices to exchange data across networks. IP version 4 (IPv4) and IP version 6 (IPv6) are the principle network layer communication protocols. Other network layer protocols include routing protocols such as Open Shortest Path First (OSPF) and messaging protocols such as Internet Control Message Protocols (ICMP).
@@ -189,4 +188,8 @@
         Destination IPv6 Address
             Ths 128-bit field identifies the IPv6 address of the receiving host.
 
-    
+    Sn IPv6 packet may also contain extension headers (EH), whcih provide optional network layer information. Extension headers are optional and are placed between the IPv6 header and the payload. EHs are used for fragmentation, security, to support mobility and more.
+
+    Unlike IPv4, routers do not fragment routed IPv6 packets.
+
+
