@@ -50,4 +50,31 @@
 
     When representing an IPv4 address using a prefix length, the IPv4 address is written followed by the prefix length with no spaces. For example, 192.168.10.10 255.255.255.0 would be written as 192.168.10.10/24.
 
-    
+# Determining the Network: Logical AND
+    A logical AND is one of three Boolean operations used in Boolean or digital logic. The other two are OR and NOT. The AND operation is used in determining the network address.
+
+    Logical AND is the comparison of two bits that produce the results shown below. Note how only a 1 AND 1 produces a 1. Any other combination results in 0.
+
+        1 AND 1 = 1
+        0 AND 1 = 0
+        1 AND O = 0
+        0 AND 0 = 0
+
+    NOTE: In digital logic, 1 represents True and 0 represents False. When using an AND operation, both input values must be True (1) for the result to be True (1).
+
+    To identify the network address of an IPv4 host, the IPv4 address is logically ANDed, bit by bit, with the subnet mask. ANDing between the address and the subnet mask yields the network address.
+
+    To illustrate how AND is used to discover a network address, consider a host with IPv4 address 192.168.10.10 and subnet mask of 255.255.255.0, as shown in the figure below:
+
+        ![Example](images/logical_AND.png)
+
+        IPv4 host address (192.168.10.10)
+            The IPv4 address of the host in dotted decimal and binary formats.
+        Subnet mask (255.255.255.0)
+            The subnet mask of the host in dotted decimal and binary formats.
+        Network address (192.168.10.0)
+            The logical AND operation between the IPv4 address and subnet mask results in an IPv4 network address shown in dotted decimal and binary formats.
+
+    Using the first sequence of bits as an example, notice the AND operation is performend on the 1-bit of the host address with the 1-bit of the subnet mask. This results in a 1 bit for the network address. 1 AND 1 = 1.
+
+    The AND operation between an IPv4 host address and subnet mask results in the IPV4 network address for this host. In this example, the AND operation between the host address of 192.168.10.10 and the subnet mask 255.255.255.0(/24), results in the IPv4 network address of 192.168.10.0/24. This is an important IPv4 operation, as it tells the host what network it belongs to.
