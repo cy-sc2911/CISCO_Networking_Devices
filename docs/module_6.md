@@ -78,3 +78,4 @@
     Using the first sequence of bits as an example, notice the AND operation is performend on the 1-bit of the host address with the 1-bit of the subnet mask. This results in a 1 bit for the network address. 1 AND 1 = 1.
 
     The AND operation between an IPv4 host address and subnet mask results in the IPV4 network address for this host. In this example, the AND operation between the host address of 192.168.10.10 and the subnet mask 255.255.255.0(/24), results in the IPv4 network address of 192.168.10.0/24. This is an important IPv4 operation, as it tells the host what network it belongs to.
+
