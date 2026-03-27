@@ -93,5 +93,3 @@
     Enterprise level switches include mitigation techniques known as dynamic ARP inspection (DAI). DAI is beyond the scope of this course.
 
         ![ARP poisoning](images/threat_attack.png)
-
-
