@@ -72,4 +72,25 @@
 
     NOTE: IPv6 uses a similar process to ARP for IPv4, known as ICMPv6 Neighbor Discovery (ND). IPv6 uses neighbor solicitation and neighbor advertisement messages, similar to IPv4 ARP requests and ARP replies.
 
-    
+# ARP Role in Remote Communications
+    When the destination IPv4 address is not on the same network as the source IPv4 address, the source device needs to send the frame to its default gateway. This is the interface of the local router. Whenever a source device has a packet with an IPv4 address on another network, it will encapsulate that packet in a frame using the destination MAC address of the router.
+
+    The IPv4 address of the default gateway is stored in the IPv4 configuration of the hosts. When a host creates a packet for a destination, it compares the destination IPv4 address and its own IPv4 address to determine if the two IPv4 addresses are located on the same Layer 3 network. If the destination host is not on its same network, the source checks its ARP table for an entry with the IPv4 address of the default gateway. If there is not an entry, it uses the ARP process to determine a MAC address of the default gateway.
+
+# Removing Entries from an ARP Table
+    For each device, an ARP cache timer removes ARP entries that have not been used for a specified period of time. The time differ depending on the operating system of the device. For example, newer Windows operating systems store ARP table entries between 15 to 45 seconds, as illustrated in the figure.
+
+        ![ARP Table removing entries](images/arp_table.png)
+
+    Commands may also be used to manually remove some or all the entries in the ARP table. After an entry has been removed, the process for sending an ARP request and receiving and ARP reply must occur again to enter the map in the ARP table.
+
+# ARP Issues - ARP Broadcasts and ARP Spoofing
+    As a broadcast frame, an ARP request is received and processed by every device on the local network. On a typical business network, these broadcasts would probably have minimal impact on network performace. However, if a large number of devices were to be powered up and start accessing network services at the same time, there could be some reduction in performance for a short period of time, as shown in the figure below. After the devices send out the initial ARP broadcasts and have learned the necessary MAC addresses, any impact on the network will be minimized.
+
+        ![ARP broadcasts can flood](images/flood.png)
+
+    In some cases, the use of ARP can lead to a potential security risk. A threat actor can use ARP spoofing to perform an ARP poisoning attack. This is a technique used by a threat actor to reply to an ARP request for an IPv4 address that belongs to another device, such as the default gateway, as shown in the figure below. The threat actor sends an ARP reply with its own MAC address. The receiver of the ARP reply will add the wrong MAC address to its ARP table and send these packets to the threat actor.
+    Enterprise level switches include mitigation techniques known as dynamic ARP inspection (DAI). DAI is beyond the scope of this course.
+
+        ![ARP poisoning](images/threat_attack.png)
+
