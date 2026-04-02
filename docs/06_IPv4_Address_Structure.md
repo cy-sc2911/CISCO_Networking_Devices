@@ -1,6 +1,4 @@
-### IPv4 Address Structure
-
-##
+## IPv4 Address Structure
 # Network and Host Portions
     IPv4 Address
         An IPV4 address is a 32-bit hierarchical address that is made up of a network portion and a host portion. When determining the network portion versus the host portion, you must look at the 32-bit stream, as shown in the figure below.

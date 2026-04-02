@@ -1,5 +1,3 @@
-### Address Resolution
-
 ## ARP
     To send a packet to another host on the same local IPv4 network, a host must know the IPv4 address and the MAC address of the destination device. Device destination IPv4 addresses are either known or resolved by device name. However, MAC addresses must be discovered. A device uses ARP to determine the destination MAC address of a local device when it knows its IPv4 address. ARP provides two basic function: resolving IPv4 addresses to MAC addresses and maintaining a table of IPv4 to MAC address mappings.
 

@@ -1,7 +1,5 @@
-### Network Layer Characteristics
-
 ## Data Encapsulation
-## The Network Layer
+# The Network Layer
     Network Layer Protocols
         The network layer, or OSI Layer 3, provides services to allow end devices to exchange data across networks. IP version 4 (IPv4) and IP version 6 (IPv6) are the principle network layer communication protocols. Other network layer protocols include routing protocols such as Open Shortest Path First (OSPF) and messaging protocols such as Internet Control Message Protocols (ICMP).
 

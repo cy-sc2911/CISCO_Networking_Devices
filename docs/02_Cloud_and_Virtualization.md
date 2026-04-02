@@ -1,5 +1,3 @@
-### Cloud and Virtualization
-
 ## Cloud and Cloud Services
         In general, when talking about the cloud, we are talking about data centers, cloud computing, and virtualization. Data centers are usually large facilities which provide massive amounts of power, cooling, and bandwidth. Only very large companies can afford their own data centers. Most smaller organizations lease the service from a cloud provider.
         Clouds service include the following:

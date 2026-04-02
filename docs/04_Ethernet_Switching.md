@@ -1,5 +1,3 @@
-### Ethernet Switching
-
 ## Ethernet
 # The Rise of Ethernet
     In the early days of networking, each vendor used its own proprietary methods of interconnecting network devices and networking protocols. If you bought equipment from different vendors, there was no guarantee that the equipment would work together. Equipment from one vendor might not communicate with equipment from another.

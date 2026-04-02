@@ -1,5 +1,3 @@
-### Binary Systems
-
 ## Binary Number System
 # Binary and IPv4 Addresses
     IPv4 addresses begin as binary, a series of only 1s and 0s. These are difficult to manage, so network administrators must convert them to decimal.
