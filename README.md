@@ -1,11 +1,9 @@
 ## 📌 Overview
-A documentation of intermediate-level networking concepts covering hierarchical network design,
-virtualization, cloud services, and core protocol operations — based on the Cisco Networking
-Devices course from Cisco Skills for All (NetAcad).
+A documentation of intermediate-level networking concepts covering hierarchical network design, virtualization, cloud services, and core protocol operations. Based on the Cisco Networking. Devices course from Cisco Skills for All (NetAcad).
 
 **Course:** Cisco Networking Devices
 **Platform:** Cisco Skills for All (NetAcad)
-**Status:** ✅ Completed
+**Status:** Ongoing
 
 ## 🎯 Learning Objectives
 - Apply number system conversions across decimal, binary, and hexadecimal
