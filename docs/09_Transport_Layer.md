@@ -43,3 +43,24 @@ The transport layer has many responsibilities:
     The transport layer must be able to separate and manage multiple communications with different transport requirement needs. To pass data streams to the proper applications, the transport layer identifies the target application using an identifier called a port number. Each software process needs to access the network is assigned a port number unique to that host.
 
 ![identifyApp](images/identifyApp.png)
+
+- Conversation Multiplexing
+
+    Sending some types of data (e.g., a streaming video) across a network, as one complete communication stream, can consume all the available bandwidth. This would prevent other communication conversations from occuring at the same time. It would also make error recovery and retransmission of damaged difficult.
+
+    The transport layer uses segmentation and multiplexing to enable different communication conversations to be interleaved on the same network.
+
+    Error checking can be performed on the data in the segment, to determine if the segment was altered during transmission.
+
+![Multiplex](images/con_multi.png)
+
+## Transport Layer Protocols
+IP is concerned only with the structre, addressing, and routing of packets. IP does not specify how the delivery or transportation of the packets takes place.
+
+Tranport layer protocols specify how to transfer messages between hosts, and are responsible for managing reliability requirements of a conversation. The transport layer includes the TCP and UDP protocols.
+
+Different applications have different transport reliability requirements. Therefore, TCP/IP provides two transport layer protocols.
+
+![TP_Layer](images/tp_layerProtocol.png)
+
+
