@@ -12,7 +12,7 @@ The transport layer has no knowledge of the destination host type, type of media
 - Transmission Control Protocol (TCP)
 - User Datagram Protocol (UDP)
 
-# Transport Layer Responsibilities
+## Transport Layer Responsibilities
 The transport layer has many responsibilities:
 - Tracking Individual Conversation
 
@@ -63,4 +63,14 @@ Different applications have different transport reliability requirements. Theref
 
 ![TP_Layer](images/tp_layerProtocol.png)
 
+## Transmission Control Protocol (TCP)
+IP is concerned only with the structure, addressing, and routing of packets, from original sender to final destination. IP is not responsible for guaranteeing delivery or determining whether a connection between the sender and receiver needs to be established.
 
+TCP is considered a reliable, full-featured transport layer protocol, which ensures that all of the data arrives at the destination. TCP includes fields which ensure the delivery of the application data. These fields require additional processing by the sending and receiving hosts.
+
+NOTE: TCP divides data into segments.
+
+TCP transport is analogous to sending packages that are tracked from source to destination. If a shipping order is broken up into several packages, a customer can check online to see the order of the delivery.
+
+TCP provides reliability and flow control using these basic operations:
+- 
