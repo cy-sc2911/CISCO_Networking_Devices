@@ -73,4 +73,23 @@ NOTE: TCP divides data into segments.
 TCP transport is analogous to sending packages that are tracked from source to destination. If a shipping order is broken up into several packages, a customer can check online to see the order of the delivery.
 
 TCP provides reliability and flow control using these basic operations:
-- 
+- Number and track data segments transmitted to a specific host from a specific application
+- Acknowledge received data
+- Retransmit any unacknowledged data after a certain amount of time
+- Sequence data that might arrive in wrong order
+- Send data at an efficient rate that is acceptable by the receiver
+
+To maintain the state of a conversation and track the information, TCP must first establish a connection between the sender and the receiver. This is why TCP is known as a connection-oriented protocol.
+
+## User Datagram Protocol (UDP)
+UDP is a simpler transport layer protocol than TCP. It does not provide reliability and flow control, which means it requires fewer header fields. Because the sender and the receiver UDP processes do not have to manage reliability and flow control, this mean UDP datagrams can be processed faster than TCP segments. UDP provides the basic functions for delivering datagrams between the appropriate applications, with very little overhead and data checking.
+
+NOTE: UDP divides data into datagrams that are also referred to as segments.
+
+UDP is a connectionless protocol. Because UDP does not provide reliability or flow control, it does not require an established connection. Because UDP does not track information sent or received between the client and server, UDP is also known as a stateless protocol.
+
+UDP is also known as a best-effort delivery protocol because there is no acknowledgement that the data is received at the destination. With UDP, there are no transport layer processess that inform the sender of a successful delivery.
+
+UDP is like placing a regular, non-registered, letter in the mail. The sender of the letter is not aware of the availability of the receiver to receive the letter. Nor is the post office responsible for tracking the letter or informing the sender if the letter does not arrive at the final destination.
+
+
