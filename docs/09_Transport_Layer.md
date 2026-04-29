@@ -106,3 +106,10 @@ Real-time video and voice usually use UDP, but may also use TCP, or both UDP and
 Applications that stream stored audio and video use TCP. For example, if our network suddenly cannot support the bandwidth needed to watch an on-demand move, the application pauses the playback. During the pause, we might see a "buffering..." message while TCP works to re-establish the stream. When all the segments are in order and a minimum level of bandwidth is restored, the TCP session resumes, and the movie resumes playing.
 
 ![UDP/TCP](images/tcpvsudp.png)
+
+    Question 1: The transport layer is responsible for establishing a temporary communication session between the source and destination host applications.
+    Question 2: The transport layer is responsible for conversation multiplexing, segmenting data and reassembling segments, and tracking individual conversations.
+    Question 3: UDP is a best-effort delivery protocol while TCP is a reliable transport protocol.
+    Question 4: UDP would be used by time sensitive VoIP applications.
+
+
