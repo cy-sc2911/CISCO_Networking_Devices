@@ -112,4 +112,33 @@ Applications that stream stored audio and video use TCP. For example, if our net
     Question 3: UDP is a best-effort delivery protocol while TCP is a reliable transport protocol.
     Question 4: UDP would be used by time sensitive VoIP applications.
 
+# TCP Overview
+## TCP Features
+To understand the differences between TCP and UDP, it is important to understand how each protocol implements specific reliability features and how each protocol tracks conversations.
+
+In addition to supporting the basic functions of data segmentation and reassembly, TCP also provides the following services:
+- **Establishes a Session** - TCP is a connection-oriented protocol that negotiates and establishes a permanent connection (or session) between source and destination prior to forwarding any traffic. Through session establishment, the devices negotiate the amount of traffic that can be forwarded at a given time, and the communication data between the two can be closely managed.
+- **Ensures Reliable Delivery** - For many reasons, it is possible for a segment to become corrupted or lost completely, as it is transmitted over the network. TCP ensures that each segment that is sent by the source arrives at the destination.
+- **Provides Same-Order Delivery** - Because networks may provide multiple routes that can have different transmission rates, data can arrive in the wrong order. By numbering and sequencing the segments, TCP ensures segments are reassembled into the proper order.
+- **Supports Flow Control** - Network hosts have limited resources (i.e., memory and processing power). When TCP is aware that these resources are overtaxed, it can request that the sending application reduce the rate of data flow. This sidone by TCP regulating the amount of data the source transmits. Flow control can prevent the need for retransmission of the data when the resources of the receving host are overwhelmed.
+
+        Note: For more information on TCP, search the internet for the RFC 793.
+
+## TCP Header Fields
+TCP is a stateful protocol, which means it keeps track of the sate of the communication session. To track the state of a session, TCP records which information it has sent and which information has been acknowledged. The stateful sessions begins with the session establishment and ends with the session termination.
+
+A TCP segment adds 20 bytes (i.e., 160 bits) of overhead when encapsulating the application layer data.
+
+![tcpheader](images/tcpheader.png)
+
+## TCP Header Fields
+The table identifies and describes the ten fields in a TCP header.
+
+|TCP Header Field|Description|
+|----------------|-----------|
+|Source Port| A 16-bit field used to identify the source application by port number|
+|Destination Port|A 16-bit field used to identify the destination application by port number|
+|Sequence Number|A 32-bit field used for data reassembly purposes|
+|Sequence Number|A 32-bit field used for data reassembly purposes|
+|Acknowledgement Number|A 32-bit field used to indicate that data has been recevied and the next byte expected from the source|
 
