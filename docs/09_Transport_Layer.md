@@ -124,7 +124,7 @@ In addition to supporting the basic functions of data segmentation and reassembl
 
         Note: For more information on TCP, search the internet for the RFC 793.
 
-## TCP Header Fields
+## TCP Header
 TCP is a stateful protocol, which means it keeps track of the sate of the communication session. To track the state of a session, TCP records which information it has sent and which information has been acknowledged. The stateful sessions begins with the session establishment and ends with the session termination.
 
 A TCP segment adds 20 bytes (i.e., 160 bits) of overhead when encapsulating the application layer data.
@@ -152,4 +152,48 @@ The table identifies and describes the ten fields in a TCP header.
 TCP is a good example of how the different layers of the TCP/IP protocol suite have specific roles. TCP handles all tasks associated with diciding the data stream into segments, providing reliability, controlling data flow, and reordering segments. TCP frees the application from having to manage any of these tasks. Applications can simply send the data stream to the transport layer and use the services of TCP.
 
 ![tcp](images/tcpuseful.png)
+
+# UDP Overview
+## UDP Features
+UDP is a best-effort transport protocol. UDP is a lightweight transport protocol that offers the same data segmentation and reassembly as TCP, but without TCP reliability and flow control.
+
+UDP is such a simple protocol that it is usually described in terms of what it does not do compared to TCP.
+
+UDP features include the following:
+- Data is reconstructed in the order that it is received.
+- Any segments that are lost are not resent.
+- There is no session establishment.
+- The sending is not informed about resource availability.
+
+## UDP Header
+UDP is a stateless protocol, meaning neither the client, nor the server, tracks the state of the communication session. If reliability is required when using UDP as the transport protocol, it must be handled by the application.
+
+One of the most important requirements for delivering live video and voice over the network is that the data continues to flow quickly. Live video and voice applications can tolerate some data loss with minimal or no noticeable effect, and are perfectly suited to the UDP.
+
+The blocks of communication in UDP are called datagrams, or segments. These datagrams are sent as best effort by the transport layer protocol.
+
+The UDP header is far simpler than the TCP header because it only has four fields and require 8 bytes (i.e., 64 bits).
+
+![udp](images/udpfield.png)
+
+## UDP Header Fields
+|UDP Header Field|Description|
+|----------------|-----------|
+|Source Port|A 16-bit field used to identify the source application by port number.|
+|Destination Port|A 16-bit field used to identify the destination application by port number.|
+|Length|A 16-bit field that indicates the length of the UDP datagram header.|
+|Checksum|A 16-bit field used for error checking of the datagram header and data.|
+
+## Applications that use UDP
+There are three types of applications that are best suited for UDP:
+- **Live video and multimedia applications** - These applications can tolerate some data loss, but require little or no delay. Examples include VoIP and live streaming video.
+- **Simple request and reply applications** - Applications with simple transactions where a host sends a request and may or may not receive a reply. Examples include DNS and DHCP.
+- **Applications that handle reliability themselves** - Unidirectional communications where flow control, error detection, acknowledgements, and error recovery is not required, or can be handled by the application. Examples include SNMP and TFTP.
+
+![udp](images/udp2.png)
+
+Although DNS and SNMP use UDP by defauly, both can also use TCP. DNS will use TCP if the DNS request or DNS response is more than 512 bytes, such as when a DNS response includes many name resolutions. Similarly, under some situations the network administrator may want to configure SNMP to use TCP.
+
+# Port Numbers
+## Multiple Separate Communications
 
