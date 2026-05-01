@@ -141,4 +141,12 @@ The table identifies and describes the ten fields in a TCP header.
 |Sequence Number|A 32-bit field used for data reassembly purposes|
 |Sequence Number|A 32-bit field used for data reassembly purposes|
 |Acknowledgement Number|A 32-bit field used to indicate that data has been recevied and the next byte expected from the source|
+|Header Length|A 4-bit field known as "data offset" that indicates the length of the TCP segment header.|
+|Reserved|A 6-bit field that is reserved for future use.|
+|Control bits|A 6-bit field that includes bit codes, or flags, which indicates the purpose and function of the TCP segment.|
+|Window size|A 16-bit field used to indicate the number of the bytes that can be accepted at one time.|
+|Checksum|A 16-bit field used for error checking of the segment header and data.|
+|Urgent|A 16-bit field used to indicate if the contained data is urgent.|
 
+## Applications that use TCP
+TCP handles all tasks associated with diciding the data stream into segments, providing reliability, controlling data flow, and reordering segments. TCP frees the application from having to manage any of these tasks.
