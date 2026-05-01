@@ -149,4 +149,7 @@ The table identifies and describes the ten fields in a TCP header.
 |Urgent|A 16-bit field used to indicate if the contained data is urgent.|
 
 ## Applications that use TCP
-TCP handles all tasks associated with diciding the data stream into segments, providing reliability, controlling data flow, and reordering segments. TCP frees the application from having to manage any of these tasks.
+TCP is a good example of how the different layers of the TCP/IP protocol suite have specific roles. TCP handles all tasks associated with diciding the data stream into segments, providing reliability, controlling data flow, and reordering segments. TCP frees the application from having to manage any of these tasks. Applications can simply send the data stream to the transport layer and use the services of TCP.
+
+![tcp](images/tcpuseful.png)
+
