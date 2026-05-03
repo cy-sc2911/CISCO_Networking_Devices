@@ -226,3 +226,27 @@ Together, these two sockets combine to form a *socket pair*. 192.168.1.5:1099, 1
 Sockets enable multiple processes, running on a client, to distinguish themselves from each other, and multiple connections to a server process to be distinguished from each other.
 
 The source port number acts as a return address for the requesting application. The transport layer keeps track of this port and the application that initiated the request so that when a response is returned, it can be forwarded to the correct application.
+
+## Port Number Groups
+The Internet Assigned Numbers Authority (IANA) is the standards organization responsible for assigning various addressing standards, including the 16-bit port numbers. The 16 bits used to identify the source and destination port numbers provides a range of ports from 0 through 65535.
+
+The IANA has divided the range of numbers into the following three port groups.
+
+|Port Group|Number Range|Description|
+|----------|------------|-----------|
+|**Well-known Ports**|**0 to 1,023**|<br>- These port numbers are reserved for common or popular services and applications <br>- Defined well-know ports for common server applications enables clients to easily identify the associated service required|
+|**Registered Ports**|**1,024 to 49,151**|<br>- These port numbers are assigned by IANA to a requesting entity to use with specific processes or applications. <br>- These processes are primarily individual applications that a user has chosen to install, rather than common applications that would receive a well-known port number. <br>- For example, Cisco has registered port 1812 for its RADIUS server authentication process.|
+|**Private** and/or **Dynamic Ports**|**49,152 to 65,535**|<br>- These ports are also known as *ephemeral ports*. <br>- The client's OS usually assign port numbers dynamically when a connection to a service is initiated. <br>- The dynamic port is then used to identify the client application during communication.|
+
+**NOTE**: Some client operating systems may use registered port numbers instead of dynamic port numbers for assigning source ports.
+
+Some applications may use both TCP and UDP. For example, DNS uses UDP when clients send requests to a DNS server. However, communication between two DNS servers always uses TCP.
+
+## The netstat Command
+Unexplained TCP connections can pose a major security threat. They can indicate something or someone is connected to the local host. Sometimes it is necessary to know which active TCP connections are open and running on a networked host. Netstat is an important network utility that can be used to verify those connections. As show below, enter the command netstat to list the protocols in use, the local address and port numbers, the foreign address and port numbers, and the connection state.
+
+![netstat](images/netstat.png)
+
+By default, the **netstat** command will attempt to resolve IP addresses to domain names and port numbers to well-known applications. The **-n** option can be used to display IP addresses and port numbers in their numerical form.
+
+
