@@ -249,4 +249,23 @@ Unexplained TCP connections can pose a major security threat. They can indicate 
 
 By default, the **netstat** command will attempt to resolve IP addresses to domain names and port numbers to well-known applications. The **-n** option can be used to display IP addresses and port numbers in their numerical form.
 
+# TCP Server Processes
+## TCP Server Processes
+Each application process running on a server is configured to use a port number. The port number is either automatically assigned or configured manually by a system administrator.
 
+An individual server cannot have two services assigned to the same port number within the same transport layer services. For example, a host running a web server application and a file transfer application cannot have both configured to use the same port, such as TCP port 80.
+
+An active server application assigned to a specific port is considered open, which means that the transport layer accepts, and processes segments addressed to that port. Any port incoming client request addressed to the correct socket is accepted, and the data is passed to the server application. There can be many ports open simultaneously on a server, one for each active server application.
+
+### Clients Sending TCP Requests
+Client 1 is requesting web services and Client 2 is requesting email service of the same server.
+
+![tcpreq](images/tcprequest.png)
+
+### Request Destination Ports
+Client 1 is requesting web services using well-known port 80 (HTTP) and Client 2 is requesting email service using well-know port 25 (SMTP).
+
+![destP](images/destport.png)
+
+### Request Source Ports
+Client requests dynamically generate a source port number. In this case, Client 1 is using source port 49152 and Client 2 is using source port 51152.
