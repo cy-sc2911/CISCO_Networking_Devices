@@ -265,7 +265,40 @@ Client 1 is requesting web services and Client 2 is requesting email service of 
 ### Request Destination Ports
 Client 1 is requesting web services using well-known port 80 (HTTP) and Client 2 is requesting email service using well-know port 25 (SMTP).
 
-![destP](images/destport.png)
+![destP](images/reqdestport.png)
 
 ### Request Source Ports
 Client requests dynamically generate a source port number. In this case, Client 1 is using source port 49152 and Client 2 is using source port 51152.
+
+### Response Destination Ports
+When the server responds to the client requests, it reverses the destination and source port of the initial request. Notice that the Server response to the web request now has destination port 49152 and the email response now has destination port 51152.
+
+![1](images/resdestport.png)
+
+### Response Source Ports
+The source port in the server response is the original destination port in the initial requests.
+
+![1](images/ressourceport.png)
+
+## TCP Connection Establishment
+In TCP connections, the host client establishes the connection with the server using the three-way handshake process.
+
+### Step 1. SYN
+The initiating client requests a client-to-server communication session with the server.
+
+![1](images/syn.png)
+
+### Step 2. ACK and SYN
+The server acknowledges the client-to-server communication session and requests a server-to-client communication session.
+
+![1](images/ackSyn.png)
+
+### Step 3. ACK
+The initiating client acknowledges the server-to-client communicaiton session.
+
+![1](images/ack.png)
+
+The three-way handshake validates that the destination host is available to communicate. In the above example, host A has validated that host B is available.
+
+## Session Termination
+
