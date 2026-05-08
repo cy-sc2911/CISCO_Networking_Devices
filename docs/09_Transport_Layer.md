@@ -301,4 +301,11 @@ The initiating client acknowledges the server-to-client communicaiton session.
 The three-way handshake validates that the destination host is available to communicate. In the above example, host A has validated that host B is available.
 
 ## Session Termination
+To close a connection, the Finish (FIN) control flag must be set in the segment header. To end each one-way TCP session, a two-way handshake, consisting of a FIN segment and an Acknowledgement (ACK) segment, is used. Therefore, to terminate a single conversation supported by TCP, four exchanges are needed to end both sessions. Either the client or the server can initiate the termination.
+
+### Step 1. FIN
+When the client has no more data to send in the stream, it sends a segment with the FIN flag set.
+
+![FIN](images/fin_end.png)
+
 
