@@ -308,4 +308,45 @@ When the client has no more data to send in the stream, it sends a segment with 
 
 ![FIN](images/fin_end.png)
 
+The three-way handshake validates that the destination host is available to communicate. In the above example, host A has validated that host B is available.
 
+### Step 2. ACK and SYN
+The server acknowledges the client-to-server communication session and requests a server-to-client communication session.
+
+![ackandsyn](images/ackNsyn.png)
+
+The three-way handshake validates that the destination host is available to communicate. In this example, host A has validated that host B is available.
+
+### Step 3. ACK
+The initiating client acknowledges the server-to-client communication session.
+
+![syn](images/syn2.png)
+
+The three-way handshake validates that the destination host is available to communicate. In the example above, host A has validated that host B is available.
+
+## Session Termination
+To close a connection, the Finish (FIN) control flag must be set in the segment header. To end each one-way TCP session, a two-way handshake, consisting of a FIN segment and an Acknowledgment (ACK) segment, is used. Therefore, to terminate a single conversation supported by TCP, four exchanges are needed to end both sessions. Either the client or the server can initiate the termination.
+
+## TCP Three-way Handshake Analysis
+Hosts maintain state, trach each data segment within a session, and exchange information about what data is received using the information in the TCP header. TCP is a full-duplex protocol, where each connection represents two one-way communication sessions. To establish the connection, the hosts perform a three-way handshake. As shown in the figure below, control bits in the TCP header indicate the progress and status of the connection.
+
+These are the functions of the three-way handshake:
+- It establishes that the destination device is present on the network.
+- It verifies that the destination device has an active service and is accepting requests on the destination port number that the initiating client intends to use.
+- It informs the destination device that the source client intends to establish a communication session on that port number.
+
+After the communication is completed, the sessions are closed, and the connection is terminated. The connection and session mechanisms enable TCP reliability function.
+
+### Control Bits Field
+
+![cbf](images/control_bits_field.png)
+
+The six bits in the Control Bits field of the TCP segment header are also known as flags. A flag is a bit that is set to either on or off.
+
+The six control bits flags are as follows:
+- ***URG*** - Urgent pointer field significant
+- ***ACK*** - Acknowledgment flag is used in connection establishment and session termination
+- ***PSH*** - Push function
+- ***RST*** - Reset the connection when an error or timout occurs
+- ***SYN*** - Synchronize sequence numbers used in connection establishment
+- ***FIN*** - No more data from sender and used in session termination.
