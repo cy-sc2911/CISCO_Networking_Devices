@@ -368,3 +368,23 @@ Segment sequence numbers indicate how to reassemble and reorder received segment
 
 The receiving TCP process places the data from a segment into a receiving buffer. Segments are then placed in the proper sequence order and passed to the application layer when reassembled. Any segments that arrive with sequence numbers that are out of order are held for later processing. Then, when the segments with the missing bytes arrive, these segments are processed in order.
 
+## TCP Reliability - Sequence Numbers and Acknowledgements
+
+One of the functions of TCP is to ensure that each segment reaches its destination. The TCP services on the destination host acknowledge the data that have been received by the source application.
+
+## TCP Reliability - Data Loss and Retransmission
+
+No matter how well designed a network is, data loss occasionally occurs. TCP provides methods of managing these segment losses. Among these is a mechanism to retransmit segments for unacknowledged data.
+
+The sequence (SEQ) number and acknowledgement (ACK) number are used together to confirm receipt of the bytes of data contained in the transmitted segments. The SEQ number identifies the first byte of data in the segment being transmitted, TCP uses the ACk number sent back to the source to indicate the next byte that the receiver expects to receive. This is called expectational acknowledgement.
+
+Host operating systems today typically employ an optional TCP feature called selective acknowledgment (SACK), negotiated during the three-way handshake. If both hosts support SACK, the receiver can explicitly acknowledge which segments (byte) were received including discontinuous segments. The sending host would therefore only need to retransmit the missing data.
+
+**Note**: TCP typically sends ACKs for every other packet, but other factors beyond the scope of this topic may alter this behavior. TCP uses timers to know how long to wait before resending a segment.
+
+## TCP Flow Control - Maximun Segment Size (MSS)
+The MSS is part of the options field in the TCP header that specifies the largest amount of data, in bytes, that a device can receive in a single TCP segment. The MSS size does not include the TCP header. The MSS is typically included during the three-way handshake.
+
+A common MSS is 1,460 bytes when using IPv4. A host determines the value of its MSS field by subtracting the IP and TCP headers from the Ethernet maximun transmission unit (MTU). On an Ethernet interface, the default MTU is 1500 bytes. Subtracting the IPv4 header of 20 bytes and the TCP header of 20 bytes, the default MSS size will be 1460 bytes, as shown in the figur below.
+
+![1](images/mss.png)
