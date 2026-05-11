@@ -350,3 +350,21 @@ The six control bits flags are as follows:
 - ***RST*** - Reset the connection when an error or timout occurs
 - ***SYN*** - Synchronize sequence numbers used in connection establishment
 - ***FIN*** - No more data from sender and used in session termination.
+
+# TCP Reliability - Guaranteed and Ordered Delivery
+The reason that TCP is the better protocol for some applications is because, unlike UDP, it resend dropped packets and number of packets to indicate their proper order before delivery. TCP can also help maintain the flow of packets so that devices do not become overloaded. This topic covers these features of TCP in detail.
+
+There may be times when TCP segments do not arrive at their destination. Other times, the TCP segments might arrive out of order. For the original message to be understood by the recipient, all the data must be received and the data in these segments must be reassembled in the header of each packet to achieve this goal. The sequence number represents the first data byte of the TCP segment.
+
+During session setup, an initial sequence number (ISN) is set. This ISN represents the starting value of the bytes that are transmitted to the receiving application. As data is transmitted during the session, the sequence number is incremented by the number of bytes that have been transmitted. This data byte tracking enables each segment to be uniquely identified and acknowledged. Missing segments can then be identified.
+
+The ISN does not begin at one but is effectively a random number. This is to prevent certain types of malicious attacks. For simplicity, the figure example below will use an ISN of 1.
+
+Segment sequence numbers indicate how to reassemble and reorder received segments.
+
+### TCP Segments are Reordered at the Destination
+
+![1](images/tcpsegments.png)
+
+The receiving TCP process places the data from a segment into a receiving buffer. Segments are then placed in the proper sequence order and passed to the application layer when reassembled. Any segments that arrive with sequence numbers that are out of order are held for later processing. Then, when the segments with the missing bytes arrive, these segments are processed in order.
+
