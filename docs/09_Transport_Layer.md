@@ -388,3 +388,30 @@ The MSS is part of the options field in the TCP header that specifies the larges
 A common MSS is 1,460 bytes when using IPv4. A host determines the value of its MSS field by subtracting the IP and TCP headers from the Ethernet maximun transmission unit (MTU). On an Ethernet interface, the default MTU is 1500 bytes. Subtracting the IPv4 header of 20 bytes and the TCP header of 20 bytes, the default MSS size will be 1460 bytes, as shown in the figur below.
 
 ![1](images/mss.png)
+
+# UDP Communication
+## UDP Low Overhead versus Reliability
+UDPis perfect for communications that need to be fast, like VoIP. UDP does not establish a connection. It provides low overhead data transport because it has a small datagram header and no network management traffic.
+
+![1](images/udplow.png)
+
+## UDP Datagram Reassembly
+Like segments with TCP, when UDP datagrams are sent to a destination, they often take different paths and arrive in the wrong orderl UDP does not track sequence numbers the way TCP does. UDP has no way to reorder the datagrams into their transmission order.
+
+Therefore, UDP simply reassembles the data in the order that it received and forward it to the application. If the data sequence is important to the application, the application must identify the proper sequence and determine how the data should be processed.
+
+### UDP: Connectionless and Unreliable
+
+![1](images/udpConnectionless.png)
+
+## UDP Server and Processes and Requests
+Like TCP-based applications, UDP-based server applications are assigned well-known or registered port numbers. When these applications or processes are running on a server, they accept the data matched with the assigned port number. When UDP receives a datagram destined for one of these ports, it forwards the application data to the appropriate application based on its port number.
+
+### UDP Server Listening for Requests
+
+![1](images/udpServListening.png)
+
+## UDP Client Processes
+As with TCP, client-server communication is initiated by a client application that requests data from a server process. The UDP client process dynamically selects a port number from the range of port numbers and uses this as the source port for the conversation. The destination port is usually the well-known or registered port number assigned to the server process.
+
+After a client has selected the source and destination ports, the same pair of ports are used in the header of all datagrams in the transaction. For the data returning to the client from the server, the source and destination port numbers in the datagram header are reversed.
