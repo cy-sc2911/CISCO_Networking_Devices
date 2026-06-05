@@ -11,13 +11,13 @@ To protect network devices, it is important to use strong passwords. Below are s
 ## Secure Remote Access
 There are multiple ways to access a device to perform  configuration tasks. One of these ways is to use a PC attached to the console port on the device. This type of connection is frequently used for initial device configuration.
 
-Setting a password for console connectiona access is done in global configuration mode. These commands prevent unauthorized users from accessing user mode from the console part.
+Setting a password for console connection access is done in global configuration mode. These commands prevent unauthorized users from accessing user mode from the console part.
 
     witch(config)# line console 0
     Switch(config-line)# password password
     Switch(config-line)# login
 
-When the device is connected to the network, it can be accessed over the network connection using SSH or Telnet. SSH is the preferred method because it is more secure. When the device is accessed through the network, it is considered a vty connection. The password must be assigned to the vty port. The following configuration is used to enable SSH access to the switch.
+When the device is connected to the network, it can be accessed over the network connection using SSH or Telnet. **SSH** is the preferred method because it is more secure. When the device is accessed through the network, it is considered a vty connection. The password must be assigned to the vty port. The following configuration is used to enable SSH access to the switch.
 
     Switch(config)# line vty 0 15
     Switch(config-line)# password password
