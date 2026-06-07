@@ -51,3 +51,21 @@ Messaging between IPv6 devices, including duplicate address detection and addres
 - Neighbor Advertisement (NA) message
 
 **Note**: ICMPv6 ND also includes the redirect message, which has a similar function to the redirect message used in ICMPv4.
+
+# Ping and Traceroute Testing
+## Ping
+Ping is an IPv4 and IPv6 testing utility that uses ICMP echo request and echo reply messages to test connectivity between hosts.
+
+To test connectivity to another host on a network, an echo request is sent to the host address using the **ping** command. If the host at the specified address receives the echo request, it responds with an echo reply. As each echo reply is received, **ping** provides feedback on the time between when the request was sent and when the reply was received. This can be measure of network performance.
+
+Ping has a timeout value for the reply. If a reply is not received within the timeout, ping provides a message indicating that a response was not received. This may indicate that there is a problem, but could also indicate that security features blocking ping messages have been enabled on the network. It is common for the first ping to timout if address resolution (ARP or ND) needs to be performed before sending the ICMP Echo Request.
+
+After all the requests are sent, the ping utility provides a summary that includes the success rate and average round-trip time to the destination. Type of connectivity tests performed with **ping** include:
+- Pinging the local loopback
+- Pinging the default gateway
+- Pinging the remote host
+
+## Ping the Loopback
+Ping can be used to test the internal configuration of IPv4 or IPv6 on the local host. To perform this test, **ping** the local loopback address of 127.0.0.1 for IPv4 (::1 for IPv6).
+
+A response from 127.0.0.1for IPv4, or ::1 for IPv6, indicates that IP is properly installed on the host. This response comes from the network layer. This response is not, however, an indication that the addresses, masks, or gateways are properly configured. Nor does it indicate anything about the status of the lower layer of the network stack. This simply tests IP down through the network layer of IP. An error message indicates that TCP/IP is not operational on the host.
