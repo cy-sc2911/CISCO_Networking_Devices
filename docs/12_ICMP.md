@@ -69,3 +69,29 @@ After all the requests are sent, the ping utility provides a summary that includ
 Ping can be used to test the internal configuration of IPv4 or IPv6 on the local host. To perform this test, **ping** the local loopback address of 127.0.0.1 for IPv4 (::1 for IPv6).
 
 A response from 127.0.0.1for IPv4, or ::1 for IPv6, indicates that IP is properly installed on the host. This response comes from the network layer. This response is not, however, an indication that the addresses, masks, or gateways are properly configured. Nor does it indicate anything about the status of the lower layer of the network stack. This simply tests IP down through the network layer of IP. An error message indicates that TCP/IP is not operational on the host.
+
+## Ping the Default Gateway
+**Ping** can also be use to test the ability of a host to communicate on the local network. This is generally done by pining the IP address of the default gateway of the host. A successful **ping** to the default gateway indicated that the host and the router interface serving as the default gateway are both operational on the local network.
+
+For this test, the defauly gateway address is most often used because the router is normally always operational. If the default gateway address does not respond, a **ping** can be sent to the IP address of another host on the local network that is known to be operational.
+
+If either the default gatewau or another host responds, then the local host can successfully communicate over the local network. If the defauly gateway does not respond but another host does, this could indicate a problem with the router interface serving as the default gateway.
+
+One possibility is that the wrong default gateway address have been configured on the host. Another possibilty is that the router interface may be fully operational but have security applied to it that prevents it from processing or responding to ping requests.
+
+## Ping a Remote Host
+Ping can also be used to test the ability of a local host to communicate across an internetwork. The local host can ping an operational IPv4 host of a remote network. The router uses its IP routing table to forward the packets.
+
+If this ping is successful, the operation of a large piece of the internetwork can be verified. A successful **ping** across the internetwork confirms communication on the local network, the operation of the router serving as the default gateway, and the operation of all other routers that might be in the path between the local network and the network of the remote host.
+
+Additionally, the functionality of the remote host can be verified. If the remote host could not communicate outside of its location network, it would not have responded.
+
+**Note**: Many network administrators limit or prohibit the entry of ICMP messages into the corporate network; therefore, the lack of a **ping** response could be due to security restrictions.
+
+## Traceroute - Test the Path
+Ping is used to test connectivity between two hosts but does not provide information about the details of devices between the hosts. Traceroute (**tracert**) is a utility that generates a list of hops that were successfully reached along the path. This list can provide important verification and troubleshooting information. If the data reaches the destination, then the trace lists the interface of every router in the path between the hosts. If the data fails at some hop along the way, the address of the last router that responded to the trace can provide an indication of where the problem or security restrictions are found.
+
+### Round Trip Time (RTT)
+Using traceroute provides rund0trip time for each hop along the path and indicates if a hop fails to respond. The round-trip time is the time a packet takes to reach the remote host and for the respons from the host to return, An asterisk (*) is used to indicate a lost or unreplied packet.
+
+This information
